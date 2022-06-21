@@ -1,6 +1,51 @@
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
     game.over(false)
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
+    game.over(true, effects.confetti)
+})
+function chicken () {
+    animation.runImageAnimation(
+    Chicken,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 5 5 5 5 5 5 . . . . 
+        . . . . . 5 5 5 5 5 5 5 5 . . . 
+        . . . . 5 5 5 5 5 5 5 5 5 . . . 
+        . . . 5 5 5 5 5 5 5 f 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
+        . 5 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+        . . . 5 5 5 5 5 5 5 5 5 . . . . 
+        . . . . . . 5 5 5 5 . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . 5 5 . . 5 5 5 5 5 5 . . . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+        . . . 5 5 5 5 5 5 5 f 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
+        . 5 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+        . . . 5 5 5 5 5 5 5 5 5 . . . . 
+        . . . . . . 5 5 5 5 5 5 5 . . . 
+        . . . . . . . . . . . 5 5 . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    200,
+    true
+    )
+}
 function level1 () {
     scene.setBackgroundImage(img`
         dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
@@ -125,50 +170,84 @@ function level1 () {
         d999999999999999999999999999999999999999999999999999999999999999999999999999999999999999dddd99999999999999999999999999999999999999999999999999999999999999999999
         `)
     tiles.setCurrentTilemap(tilemap`level1`)
-    mySprite.setPosition(6, 37)
+    info.setScore(0)
+    Chicken.setPosition(5, 37)
+    Owl = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . f f f . . . f f . . . . 
+        . . f f e e f f f f f e f f . . 
+        f f e e e e e e e e e e e e f f 
+        e f e e e 5 e e e e 5 e e e f e 
+        e e f e e f e f f e f e e f e e 
+        f e e f e e e f f e e e f f e e 
+        . f f e f f e e e e e f e e f e 
+        . f e e e e f e e e f e e e e f 
+        . . f e e e e f f f f e e e f . 
+        . . . f e e e f e e e f e f . . 
+        . . . . f e e e e e e f f . . . 
+        . . . . . f f e e e f . . . . . 
+        . . . . . . f f f e f . . . . . 
+        . . . . . . . . f f f . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Enemy)
+    Owl.follow(Chicken)
+}
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
+    info.changeScoreBy(-1)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
+    tiles.setTileAt(location, assets.tile`myTile2`)
+    for (let value of tiles.getTilesByType(assets.tile`myTile`)) {
+        tiles.setTileAt(value, assets.tile`myTile2`)
+        tiles.setWallAt(value, true)
+    }
+    info.changeScoreBy(1)
+})
+function owl () {
     animation.runImageAnimation(
-    mySprite,
+    Owl,
     [img`
         . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . 5 5 5 5 5 5 . . . . 
-        . . . . . 5 5 5 5 5 5 5 5 . . . 
-        . . . . 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 f 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
-        . 5 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 5 5 . . . . 
-        . . . . . . 5 5 5 5 . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        . . . . f f f . . . f f . . . . 
+        . . f f e e f f f f f e f f . . 
+        f f e e e e e e e e e e e e f f 
+        e f e e e 5 e e e e 5 e e e f e 
+        e e f e e f e f f e f e e f e e 
+        f e e f e e e f f e e e f f e e 
+        . f f e f f e e e e e f e e f e 
+        . f e e e e f e e e f e e e e f 
+        . . f e e e e f f f f e e e f . 
+        . . . f e e e f e e e f e f . . 
+        . . . . f e e e e e e f f . . . 
+        . . . . . f f e e e f . . . . . 
+        . . . . . . f f f e f . . . . . 
+        . . . . . . . . f f f . . . . . 
         . . . . . . . . . . . . . . . . 
         `,img`
         . . . . . . . . . . . . . . . . 
-        . 5 5 . . . . . . . . . . . . . 
-        . 5 5 5 5 . 5 5 5 5 5 5 . . . . 
-        . 5 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 f 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
-        . 5 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . . 5 5 5 5 5 5 5 5 5 5 5 5 . 
-        . . . . . . 5 5 5 5 . . 5 5 5 . 
-        . . . . . . . . . . . . 5 5 5 . 
+        . . . . f f f . . . f f . . . . 
+        . . . f e e f f f f f e . . . . 
+        . . . . e e e e e e e e e . f . 
+        . f . e e 5 e e e e 5 e e . f . 
+        . e . e e f e f f e f e e f e . 
+        . e e f e e e f f e e e f f e . 
+        . f f e f f e e e e e f e e . . 
+        . . e e e e f e e e f e e e . . 
+        . . . e e e e f f f f e e e . . 
+        . . . . . e e f e e e f e . . . 
+        . . . . . e e e e e e f . . . . 
+        . . . . . f f e e e . . . . . . 
+        . . . . . . . . f e . . . . . . 
+        . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `],
     200,
     true
     )
 }
-let mySprite: Sprite = null
-mySprite = sprites.create(img`
+let Owl: Sprite = null
+let Chicken: Sprite = null
+Chicken = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . 5 5 5 5 5 5 . . . . 
@@ -186,7 +265,7 @@ mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
-mySprite.setStayInScreen(true)
-scene.cameraFollowSprite(mySprite)
-controller.moveSprite(mySprite)
+Chicken.setStayInScreen(true)
+scene.cameraFollowSprite(Chicken)
+controller.moveSprite(Chicken)
 level1()

@@ -4,48 +4,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, l
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
     game.over(true, effects.confetti)
 })
-function chicken () {
-    animation.runImageAnimation(
-    Chicken,
-    [img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . 5 5 5 5 5 5 . . . . 
-        . . . . . 5 5 5 5 5 5 5 5 . . . 
-        . . . . 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 f 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
-        . 5 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 5 5 . . . . 
-        . . . . . . 5 5 5 5 . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `,img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . 5 5 . . 5 5 5 5 5 5 . . . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 f 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
-        . 5 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 5 5 . . . . 
-        . . . . . . 5 5 5 5 5 5 5 . . . 
-        . . . . . . . . . . . 5 5 . . . 
-        . . . . . . . . . . . . . . . . 
-        `],
-    200,
-    true
-    )
-}
 function level1 () {
     scene.setBackgroundImage(img`
         dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
@@ -171,7 +129,6 @@ function level1 () {
         `)
     tiles.setCurrentTilemap(tilemap`level1`)
     info.setScore(0)
-    Chicken.setPosition(5, 37)
     Owl = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . f f f . . . f f . . . . 
@@ -190,20 +147,48 @@ function level1 () {
         . . . . . . . . f f f . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Enemy)
-    Owl.follow(Chicken)
-}
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
-    info.changeScoreBy(-1)
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
-    tiles.setTileAt(location, assets.tile`myTile2`)
-    for (let value of tiles.getTilesByType(assets.tile`myTile`)) {
-        tiles.setTileAt(value, assets.tile`myTile2`)
-        tiles.setWallAt(value, true)
-    }
-    info.changeScoreBy(1)
-})
-function owl () {
+    Chicken.setPosition(5, 37)
+    animation.runImageAnimation(
+    Chicken,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 5 5 5 5 5 5 . . . . 
+        . . . . . 5 5 5 5 5 5 5 5 . . . 
+        . . . . 5 5 5 5 5 5 5 5 5 . . . 
+        . . . 5 5 5 5 5 5 5 f 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
+        . 5 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+        . . . 5 5 5 5 5 5 5 5 5 . . . . 
+        . . . . . . 5 5 5 5 . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . 5 5 . . 5 5 5 5 5 5 . . . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+        . . . 5 5 5 5 5 5 5 f 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
+        . 5 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+        . . . 5 5 5 5 5 5 5 5 5 . . . . 
+        . . . . . . 5 5 5 5 5 5 5 . . . 
+        . . . . . . . . . . . 5 5 . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    200,
+    true
+    )
+    Owl.setVelocity(50, 50)
     animation.runImageAnimation(
     Owl,
     [img`
@@ -244,7 +229,21 @@ function owl () {
     200,
     true
     )
+    for (let value of tiles.getTilesByType(assets.tile`myTile4`)) {
+        tiles.placeOnRandomTile(Owl, assets.tile`myTile4`)
+    }
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
+    info.changeScoreBy(-1)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
+    tiles.setTileAt(location, assets.tile`myTile2`)
+    for (let value of tiles.getTilesByType(assets.tile`myTile`)) {
+        tiles.setTileAt(value, assets.tile`myTile2`)
+        tiles.setWallAt(value, true)
+    }
+    info.changeScoreBy(1)
+})
 let Owl: Sprite = null
 let Chicken: Sprite = null
 Chicken = sprites.create(img`
@@ -267,5 +266,5 @@ Chicken = sprites.create(img`
     `, SpriteKind.Player)
 Chicken.setStayInScreen(true)
 scene.cameraFollowSprite(Chicken)
-controller.moveSprite(Chicken)
+controller.moveSprite(Chicken, 100, 100)
 level1()

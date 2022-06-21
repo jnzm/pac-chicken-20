@@ -147,7 +147,39 @@ function level1 () {
         . . . . . . . . f f f . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Enemy)
+    myEnemy = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . f f f . . . f f . . . . 
+        . . f f e e f f f f f e f f . . 
+        f f e e e e e e e e e e e e f f 
+        e f e e e 5 e e e e 5 e e e f e 
+        e e f e e f e f f e f e e f e e 
+        f e e f e e e f f e e e f f e e 
+        . f f e f f e e e e e f e e f e 
+        . f e e e e f e e e f e e e e f 
+        . . f e e e e f f f f e e e f . 
+        . . . f e e e f e e e f e f . . 
+        . . . . f e e e e e e f f . . . 
+        . . . . . f f e e e f . . . . . 
+        . . . . . . f f f e f . . . . . 
+        . . . . . . . . f f f . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Enemy)
     Chicken.setPosition(5, 37)
+    tiles.placeOnRandomTile(Owl, assets.tile`myTile4`)
+}
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
+    info.changeScoreBy(-1)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
+    tiles.setTileAt(location, assets.tile`myTile2`)
+    for (let value of tiles.getTilesByType(assets.tile`myTile`)) {
+        tiles.setTileAt(value, assets.tile`myTile2`)
+        tiles.setWallAt(value, true)
+    }
+    info.changeScoreBy(1)
+})
+function animations () {
     animation.runImageAnimation(
     Chicken,
     [img`
@@ -188,7 +220,6 @@ function level1 () {
     200,
     true
     )
-    Owl.setVelocity(50, 50)
     animation.runImageAnimation(
     Owl,
     [img`
@@ -229,21 +260,8 @@ function level1 () {
     200,
     true
     )
-    for (let value of tiles.getTilesByType(assets.tile`myTile4`)) {
-        tiles.placeOnRandomTile(Owl, assets.tile`myTile4`)
-    }
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
-    info.changeScoreBy(-1)
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
-    tiles.setTileAt(location, assets.tile`myTile2`)
-    for (let value of tiles.getTilesByType(assets.tile`myTile`)) {
-        tiles.setTileAt(value, assets.tile`myTile2`)
-        tiles.setWallAt(value, true)
-    }
-    info.changeScoreBy(1)
-})
+let myEnemy: Sprite = null
 let Owl: Sprite = null
 let Chicken: Sprite = null
 Chicken = sprites.create(img`
@@ -266,5 +284,5 @@ Chicken = sprites.create(img`
     `, SpriteKind.Player)
 Chicken.setStayInScreen(true)
 scene.cameraFollowSprite(Chicken)
-controller.moveSprite(Chicken, 100, 100)
+controller.moveSprite(Chicken)
 level1()

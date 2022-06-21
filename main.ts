@@ -4,7 +4,79 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, l
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
     game.over(true, effects.confetti)
 })
+function chicken () {
+    animation.runImageAnimation(
+    Chicken,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 5 5 5 5 5 5 . . . . 
+        . . . . . 5 5 5 5 5 5 5 5 . . . 
+        . . . . 5 5 5 5 5 5 5 5 5 . . . 
+        . . . 5 5 5 5 5 5 5 f 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
+        . 5 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+        . . . 5 5 5 5 5 5 5 5 5 . . . . 
+        . . . . . . 5 5 5 5 . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . 5 5 . . 5 5 5 5 5 5 . . . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+        . . . 5 5 5 5 5 5 5 f 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
+        . 5 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+        . . . 5 5 5 5 5 5 5 5 5 . . . . 
+        . . . . . . 5 5 5 5 5 5 5 . . . 
+        . . . . . . . . . . . 5 5 . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    200,
+    true
+    )
+}
 function level1 () {
+    game.setDialogFrame(img`
+        ffffffffffffffffffffffff
+        ffff1111111111111111ffff
+        fff111111111111111111fff
+        f111111111111111111111ff
+        f1111111111111111111111f
+        f1111111111111111111111f
+        f1111111111111111111111f
+        f1111111111111111111111f
+        f1111111111111111111111f
+        f1111111111111111111111f
+        f1111111111111111111111f
+        f1111111111111111111111f
+        f1111111111111111111111f
+        f1111111111111111111111f
+        f1111111111111111111111f
+        f1111111111111111111111f
+        f1111111111111111111111f
+        f1111111111111111111111f
+        ff11111111111111111111ff
+        fff111111111111111111fff
+        fff11111111111111111ffff
+        f1111fffffffffffffffffff
+        f11fffffffffffffffffffff
+        ffffffffffffffffffffffff
+        `)
+    game.showLongText("Your first challenge is to avoid!", DialogLayout.Bottom)
+    game.showLongText("Do not touch the black-lined tiles", DialogLayout.Bottom)
+    game.showLongText("And do not let the owl get you!", DialogLayout.Bottom)
+    game.showLongText("Make sure to collect as much yellow corn as possible!", DialogLayout.Bottom)
     scene.setBackgroundImage(img`
         dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
         dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
@@ -128,6 +200,8 @@ function level1 () {
         d999999999999999999999999999999999999999999999999999999999999999999999999999999999999999dddd99999999999999999999999999999999999999999999999999999999999999999999
         `)
     tiles.setCurrentTilemap(tilemap`level1`)
+    maincharacterChicken()
+    Chicken.setPosition(5, 37)
     info.setScore(0)
     Owl = sprites.create(img`
         . . . . . . . . . . . . . . . . 
@@ -147,29 +221,15 @@ function level1 () {
         . . . . . . . . f f f . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Enemy)
-    myEnemy = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . f f f . . . f f . . . . 
-        . . f f e e f f f f f e f f . . 
-        f f e e e e e e e e e e e e f f 
-        e f e e e 5 e e e e 5 e e e f e 
-        e e f e e f e f f e f e e f e e 
-        f e e f e e e f f e e e f f e e 
-        . f f e f f e e e e e f e e f e 
-        . f e e e e f e e e f e e e e f 
-        . . f e e e e f f f f e e e f . 
-        . . . f e e e f e e e f e f . . 
-        . . . . f e e e e e e f f . . . 
-        . . . . . f f e e e f . . . . . 
-        . . . . . . f f f e f . . . . . 
-        . . . . . . . . f f f . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Enemy)
-    Chicken.setPosition(5, 37)
-    tiles.placeOnRandomTile(Owl, assets.tile`myTile4`)
+    Owl.follow(Chicken, 45)
+    chicken()
+    owl()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
     info.changeScoreBy(-1)
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    level1()
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
     tiles.setTileAt(location, assets.tile`myTile2`)
@@ -179,10 +239,8 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, l
     }
     info.changeScoreBy(1)
 })
-function animations () {
-    animation.runImageAnimation(
-    Chicken,
-    [img`
+function maincharacterChicken () {
+    Chicken = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . 5 5 5 5 5 5 . . . . 
@@ -199,27 +257,12 @@ function animations () {
         . . . . . . 5 5 5 5 . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        `,img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . 5 5 . . 5 5 5 5 5 5 . . . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 f 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
-        . 5 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 5 5 . . . . 
-        . . . . . . 5 5 5 5 5 5 5 . . . 
-        . . . . . . . . . . . 5 5 . . . 
-        . . . . . . . . . . . . . . . . 
-        `],
-    200,
-    true
-    )
+        `, SpriteKind.Player)
+    Chicken.setStayInScreen(true)
+    scene.cameraFollowSprite(Chicken)
+    controller.moveSprite(Chicken, 100, 100)
+}
+function owl () {
     animation.runImageAnimation(
     Owl,
     [img`
@@ -261,28 +304,159 @@ function animations () {
     true
     )
 }
-let myEnemy: Sprite = null
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    game.over(false)
+})
 let Owl: Sprite = null
 let Chicken: Sprite = null
-Chicken = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . 5 5 5 5 5 5 . . . . 
-    . . . . . 5 5 5 5 5 5 5 5 . . . 
-    . . . . 5 5 5 5 5 5 5 5 5 . . . 
-    . . . 5 5 5 5 5 5 5 f 5 5 5 . . 
-    . . 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
-    . 5 5 5 5 5 5 5 5 5 5 5 5 4 4 . 
-    . . 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
-    . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-    . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-    . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-    . . . 5 5 5 5 5 5 5 5 5 . . . . 
-    . . . . . . 5 5 5 5 . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
-Chicken.setStayInScreen(true)
-scene.cameraFollowSprite(Chicken)
-controller.moveSprite(Chicken)
-level1()
+scene.setBackgroundImage(img`
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555dddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555dddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555dddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555dddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd5555555555555555555555555555555fffff5555555555555ddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd5555555555555555555555555555555fffff5555555555555ddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd5555555555555555555555555555555fffff5555555555555ddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd5555555555555555555555555555555fffff5555555555555ddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555555555555444444444dddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555555555555444444444dddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555555555555444444444dddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555555555555444444444dddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555555555555555555555444444444dddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555555555555555555555444444444dddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555555555555555555555444444444dddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555555555555555555555444444444dddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555555555555555555555444444444dddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555555555555555555555dddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555555555555555555555dddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555555555555555555555dddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555555555555555555555dddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd55555555555555555555555555555555555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd5555555555555555555555555555555555555555dddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd5555555555555555555555555555555555555555dddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd5555555555555555555555555555555555555555dddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd5555555555555555555555555555555555555555dddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd555555555555555555ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    `)
+game.setDialogFrame(img`
+    ffffffffffffffffffffffff
+    ffff1111111111111111ffff
+    fff111111111111111111fff
+    f111111111111111111111ff
+    f1111111111111111111111f
+    f1111111111111111111111f
+    f1111111111111111111111f
+    f1111111111111111111111f
+    f1111111111111111111111f
+    f1111111111111111111111f
+    f1111111111111111111111f
+    f1111111111111111111111f
+    f1111111111111111111111f
+    f1111111111111111111111f
+    f1111111111111111111111f
+    f1111111111111111111111f
+    f1111111111111111111111f
+    f1111111111111111111111f
+    ff11111111111111111111ff
+    fff111111111111111111fff
+    fff11111111111111111ffff
+    f1111fffffffffffffffffff
+    f11fffffffffffffffffffff
+    ffffffffffffffffffffffff
+    `)
+game.showLongText("Bawk! Chicken needs your help!", DialogLayout.Bottom)
+game.showLongText("Help chicken escape dangerous enemies!", DialogLayout.Bottom)
+game.showLongText("Press A to get started!", DialogLayout.Bottom)

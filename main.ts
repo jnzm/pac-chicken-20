@@ -209,7 +209,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`goincoldlevel1`, function (sp
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     info.changeScoreBy(1)
-    coin.destroy()
+    otherSprite.destroy()
 })
 function level1Chicken () {
     scene.setBackgroundImage(assets.image`level1background`)

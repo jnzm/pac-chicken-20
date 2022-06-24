@@ -215,6 +215,9 @@ function maincharacterPacman () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
     game.over(true, effects.confetti)
 })
+info.onLifeZero(function () {
+    game.over(false)
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`goincoldlevel1`, function (sprite, location) {
     tiles.setTileAt(location, assets.tile`goldcoingrasslevel1`)
     for (let value of tiles.getTilesByType(assets.tile`dangeroustilelevel1`)) {
@@ -250,10 +253,11 @@ function level1Pacman () {
     maincharacterPacman()
     Pacman()
     food()
+    info.setLife(3)
     PacMan.setPosition(25, 40)
     Ghost = sprites.create(assets.image`ghost1pacman`, SpriteKind.Enemy)
     Ghost.setPosition(250, 115)
-    Ghost.follow(PacMan, 30)
+    Ghost.follow(PacMan, 15)
     ghost()
     Ghost.setBounceOnWall(false)
     Ghost2 = sprites.create(assets.image`ghost2pacman`, SpriteKind.Enemy)
@@ -263,7 +267,7 @@ function level1Pacman () {
     Ghost2.setBounceOnWall(false)
     Ghost3 = sprites.create(assets.image`ghost3pacman`, SpriteKind.Player)
     Ghost3.setPosition(120, 75)
-    Ghost3.follow(PacMan, 50)
+    Ghost3.follow(PacMan, 10)
     ghost3()
     Ghost3.setBounceOnWall(false)
 }
@@ -339,7 +343,9 @@ function level2Chicken () {
     tiles.setCurrentTilemap(tilemap`level2`)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    game.over(false)
+    if (info.score() <= 15) {
+        info.changeLifeBy(-1)
+    }
 })
 let Ghost3: Sprite = null
 let Owl: Sprite = null

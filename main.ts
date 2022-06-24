@@ -1,6 +1,36 @@
+let PacMan: Sprite = null
+let Ghost: Sprite = null
+let Ghost2: Sprite = null
+let Ghost3: Sprite = null
+let Chicken: Sprite = null
+let coin: Sprite = null
+let Owl: Sprite = null
 scene.onOverlapTile(SpriteKind.Player, assets.tile`yellowcornlevel1winplace`, function (sprite, location) {
     game.over(true, effects.confetti)
 })
+function level2Pacman () {
+    scene.setBackgroundImage(assets.image`Pacmanlevel1`)
+    tiles.setCurrentTilemap(tilemap`level4`)
+    maincharacterPacman()
+    Pacman()
+    food()
+    PacMan.setPosition(25, 40)
+    Ghost = sprites.create(assets.image`ghost1pacman`, SpriteKind.Enemy)
+    Ghost.setPosition(250, 115)
+    Ghost.follow(PacMan, 15)
+    ghost()
+    Ghost.setBounceOnWall(false)
+    Ghost2 = sprites.create(assets.image`ghost2pacman`, SpriteKind.Enemy)
+    Ghost2.setPosition(380, 170)
+    Ghost2.follow(PacMan, 20)
+    ghost2()
+    Ghost2.setBounceOnWall(false)
+    Ghost3 = sprites.create(assets.image`ghost3pacman`, SpriteKind.Player)
+    Ghost3.setPosition(120, 75)
+    Ghost3.follow(PacMan, 10)
+    ghost3()
+    Ghost3.setBounceOnWall(false)
+}
 function Pacman () {
     animation.runImageAnimation(
     PacMan,
@@ -9,6 +39,9 @@ function Pacman () {
     true
     )
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
+    info.startCountdown(30)
+})
 function chicken () {
     animation.runImageAnimation(
     Chicken,
@@ -17,6 +50,10 @@ function chicken () {
     true
     )
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile6`, function (sprite, location) {
+    info.changeScoreBy(200)
+    game.over(true)
+})
 function ghost2 () {
     animation.runImageAnimation(
     Ghost2,
@@ -109,6 +146,91 @@ function food () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`dangeroustilelevel1`, function (sprite, location) {
     game.over(false)
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
+    game.over(true)
+})
+info.onCountdownEnd(function () {
+	
+})
+function level3Pacman () {
+    scene.setBackgroundImage(img`
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        `)
+    tiles.setCurrentTilemap(tilemap`level3pacmantilemap`)
+    maincharacterPacman()
+    Pacman()
+    food()
+    PacMan.setPosition(25, 25)
+}
 function ghost () {
     animation.runImageAnimation(
     Ghost,
@@ -215,8 +337,8 @@ function maincharacterPacman () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
     game.over(true, effects.confetti)
 })
-info.onLifeZero(function () {
-    game.over(false)
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
+    info.stopCountdown()
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`goincoldlevel1`, function (sprite, location) {
     tiles.setTileAt(location, assets.tile`goldcoingrasslevel1`)
@@ -248,84 +370,18 @@ function level1Chicken () {
     owl()
 }
 function level1Pacman () {
-    scene.setBackgroundImage(assets.image`Pacmanlevel1`)
-    tiles.setCurrentTilemap(tilemap`level4`)
+    scene.setBackgroundImage(assets.image`background5`)
+    tiles.setCurrentTilemap(tilemap`level5`)
     maincharacterPacman()
     Pacman()
     food()
-    info.setLife(3)
-    PacMan.setPosition(25, 40)
-    Ghost = sprites.create(assets.image`ghost1pacman`, SpriteKind.Enemy)
-    Ghost.setPosition(250, 115)
-    Ghost.follow(PacMan, 15)
-    ghost()
-    Ghost.setBounceOnWall(false)
-    Ghost2 = sprites.create(assets.image`ghost2pacman`, SpriteKind.Enemy)
-    Ghost2.setPosition(380, 170)
-    Ghost2.follow(PacMan, 20)
-    ghost2()
-    Ghost2.setBounceOnWall(false)
-    Ghost3 = sprites.create(assets.image`ghost3pacman`, SpriteKind.Player)
-    Ghost3.setPosition(120, 75)
-    Ghost3.follow(PacMan, 10)
-    ghost3()
-    Ghost3.setBounceOnWall(false)
+    PacMan.setPosition(25, 25)
+    info.startCountdown(45)
 }
 function ghost3 () {
     animation.runImageAnimation(
     Ghost3,
-    [img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . 7 7 7 7 . . . . . . 
-        . . . . . 7 7 7 7 7 7 7 . . . . 
-        . . . . 7 7 7 7 7 7 7 7 . . . . 
-        . . . 7 7 7 1 7 7 1 7 7 7 . . . 
-        . . . 7 7 7 1 7 7 1 7 7 7 . . . 
-        . . 7 7 7 7 9 7 7 9 7 7 7 7 . . 
-        . . . 7 7 7 9 7 7 9 7 7 7 7 . . 
-        . . 7 7 7 7 7 7 7 7 7 7 7 . . . 
-        . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
-        . . 7 7 7 7 7 7 7 7 7 7 7 . . . 
-        . . 7 7 7 7 7 7 7 7 7 7 7 . . . 
-        . . . 7 7 7 7 7 7 7 7 7 7 . . . 
-        . . . . 7 . 7 7 . 7 . 7 . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `,img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . 7 7 7 7 . . . . . . 
-        . . . . . 7 7 7 7 7 7 7 . . . . 
-        . . . . 7 7 7 7 7 7 7 7 . . . . 
-        . . . 7 7 7 1 7 7 1 7 7 . . . . 
-        . . . . 7 7 1 7 7 1 7 7 7 . . . 
-        . . . 7 7 7 9 7 7 9 7 7 . . . . 
-        . . . . 7 7 9 7 7 9 7 7 7 . . . 
-        . . . 7 7 7 7 7 7 7 7 7 . . . . 
-        . . . . 7 7 7 7 7 7 7 7 7 . . . 
-        . . . 7 7 7 7 7 7 7 7 7 . . . . 
-        . . . . 7 7 7 7 7 7 7 7 7 . . . 
-        . . . . 7 . 7 . 7 . 7 . 7 . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `,img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . 7 7 7 7 . . . . . . 
-        . . . . . 7 7 7 7 7 7 7 . . . . 
-        . . . . 7 7 7 7 7 7 7 7 . . . . 
-        . . . 7 7 7 1 7 7 1 7 7 7 . . . 
-        . . . . 7 7 1 7 7 1 7 7 . . . . 
-        . . . . 7 7 9 7 7 9 7 7 . . . . 
-        . . . 7 7 7 9 7 7 9 7 7 7 . . . 
-        . . . 7 7 7 7 7 7 7 7 7 . . . . 
-        . . . . 7 7 7 7 7 7 7 7 7 . . . 
-        . . . . 7 7 7 7 7 7 7 7 . . . . 
-        . . . . 7 7 7 7 7 7 7 7 . . . . 
-        . . . 7 7 . . . 7 7 7 7 7 . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `],
+    assets.animation`ghost3enemypacman`,
     200,
     true
     )
@@ -343,16 +399,5 @@ function level2Chicken () {
     tiles.setCurrentTilemap(tilemap`level2`)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    if (info.score() <= 15) {
-        info.changeLifeBy(-1)
-    }
+    game.over(false)
 })
-let Ghost3: Sprite = null
-let Owl: Sprite = null
-let Ghost: Sprite = null
-let coin: Sprite = null
-let Ghost2: Sprite = null
-let Chicken: Sprite = null
-let PacMan: Sprite = null
-info.setScore(0)
-level1Pacman()

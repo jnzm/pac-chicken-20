@@ -4,58 +4,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`yellowcornlevel1winplace`, fu
 function Pacman () {
     animation.runImageAnimation(
     PacMan,
-    [img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . 5 5 5 5 5 . . . . . 
-        . . . . . 5 5 5 5 5 5 5 . . . . 
-        . . . . 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . . 5 5 5 5 5 5 5 5 5 . . . . 
-        . . 5 5 5 5 5 5 5 5 5 . . . . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 5 5 . . . . 
-        . . . . . 5 5 5 5 5 . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `,img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . 5 5 5 5 5 . . . . . 
-        . . . . . 5 5 5 5 5 5 5 . . . . 
-        . . . . 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . . 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 5 5 . . . . 
-        . . . . . 5 5 5 5 5 . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `,img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . 5 5 5 5 5 . . . . . 
-        . . . . . 5 5 5 5 5 5 5 . . . . 
-        . . . . 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . . 5 5 5 5 5 5 5 5 5 . . . . 
-        . . 5 5 5 5 5 5 5 5 5 . . . . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-        . . . 5 5 5 5 5 5 5 5 5 . . . . 
-        . . . . . 5 5 5 5 5 . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `],
+    assets.animation`pacmanmaincharacteranimation`,
     150,
     true
     )
@@ -68,114 +17,88 @@ function chicken () {
     true
     )
 }
+function ghost2 () {
+    animation.runImageAnimation(
+    Ghost2,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 4 4 4 4 . . . . . . 
+        . . . . . 4 4 4 4 4 4 4 . . . . 
+        . . . . 4 4 4 4 4 4 4 4 . . . . 
+        . . . 4 4 4 1 4 4 1 4 4 4 . . . 
+        . . . 4 4 4 1 4 4 1 4 4 4 . . . 
+        . . 4 4 4 4 9 4 4 9 4 4 4 4 . . 
+        . . . 4 4 4 9 4 4 9 4 4 4 4 . . 
+        . . 4 4 4 4 4 4 4 4 4 4 4 . . . 
+        . . . 4 4 4 4 4 4 4 4 4 4 4 . . 
+        . . 4 4 4 4 4 4 4 4 4 4 4 . . . 
+        . . 4 4 4 4 4 4 4 4 4 4 4 . . . 
+        . . . 4 4 4 4 4 4 4 4 4 4 . . . 
+        . . . . 4 . 4 4 . 4 . 4 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 4 . 4 4 . . . . . . 
+        . . . . . 4 4 4 4 4 4 4 . . . . 
+        . . . . . 4 4 4 4 4 4 . . . . . 
+        . . . 4 4 4 1 4 4 1 4 4 4 . . . 
+        . . . . 4 4 1 4 4 1 4 4 . . . . 
+        . . 4 4 4 4 9 4 4 9 4 4 4 4 . . 
+        . . . . 4 4 9 4 4 9 4 4 . . . . 
+        . . 4 4 4 4 4 4 4 4 4 4 4 . . . 
+        . . . . 4 4 4 4 4 4 4 4 . . . . 
+        . . . . 4 4 4 4 4 4 4 4 4 . . . 
+        . . 4 4 4 . 4 4 4 4 4 . 4 . . . 
+        . . . 4 4 . . 4 . 4 . 4 4 . . . 
+        . . . . 4 . 4 4 . 4 . 4 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . 4 . . . . . . . 
+        . . . . . 4 4 4 4 4 4 4 . . . . 
+        . . . . . 4 4 4 4 4 4 . . . . . 
+        . . . 4 4 4 1 4 4 1 4 4 4 . . . 
+        . . . . 4 4 1 4 4 1 4 4 . . . . 
+        . . . 4 4 4 9 4 4 9 4 4 4 4 . . 
+        . . . . 4 4 9 4 4 9 4 4 . . . . 
+        . . . 4 4 4 4 4 4 4 4 4 4 . . . 
+        . . . . 4 4 4 4 4 4 4 4 . . . . 
+        . . . . 4 4 4 4 4 4 4 4 . . . . 
+        . . . . 4 . 4 4 4 4 4 . . . . . 
+        . . . . . . . 4 . 4 . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . 4 4 4 4 4 4 . . . . . 
+        . . . . . 4 4 4 4 4 4 . . . . . 
+        . . . . 4 4 1 4 4 1 4 4 . . . . 
+        . . . . 4 4 1 4 4 1 4 4 . . . . 
+        . . . . 4 4 9 4 4 9 4 4 . . . . 
+        . . . . 4 4 9 4 4 9 4 4 . . . . 
+        . . . . 4 4 4 4 4 4 4 4 . . . . 
+        . . . . 4 4 4 4 4 4 4 4 . . . . 
+        . . . . 4 4 4 4 4 4 4 4 . . . . 
+        . . . . . . 4 . 4 . 4 . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    200,
+    true
+    )
+}
 function food () {
     for (let value of tiles.getTilesByType(assets.tile`CoinFoodPac-Man`)) {
-        coin = sprites.create(img`
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d 5 5 5 5 5 d d d d d d 
-            d d d d d 5 5 5 5 5 d d d d d d 
-            d d d d d 5 5 5 5 5 d d d d d d 
-            d d d d d 5 5 5 5 5 d d d d d d 
-            d d d d d 5 5 5 5 5 d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            `, SpriteKind.Food)
+        coin = sprites.create(assets.image`foodpacman`, SpriteKind.Food)
         animation.runImageAnimation(
         coin,
-        [img`
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d 5 5 5 5 5 d d d d d d 
-            d d d d d 5 5 5 5 5 d d d d d d 
-            d d d d d 5 5 5 5 5 d d d d d d 
-            d d d d d 5 5 5 5 5 d d d d d d 
-            d d d d d 5 5 5 5 5 d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            d d d d d d d d d d d d d d d d 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . d d d d d d d d d d d d d d . 
-            . d d d d d d d d d d d d d d . 
-            . d d d d d d d d d d d d d d . 
-            . d d d d d d d d d d d d d d . 
-            . d d d d 5 5 5 5 5 d d d d d . 
-            . d d d d 5 5 5 5 5 d d d d d . 
-            . d d d d 5 5 5 5 5 d d d d d . 
-            . d d d d 5 5 5 5 5 d d d d d . 
-            . d d d d 5 5 5 5 5 d d d d d . 
-            . d d d d d d d d d d d d d d . 
-            . d d d d d d d d d d d d d d . 
-            . d d d d d d d d d d d d d d . 
-            . d d d d d d d d d d d d d d . 
-            . d d d d d d d d d d d d d d . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . d d d d d d d d d d d d . . 
-            . . d d d d d d d d d d d d . . 
-            . . d d d d d d d d d d d d . . 
-            . . d d d 5 5 5 5 5 d d d d . . 
-            . . d d d 5 5 5 5 5 d d d d . . 
-            . . d d d 5 5 5 5 5 d d d d . . 
-            . . d d d 5 5 5 5 5 d d d d . . 
-            . . d d d 5 5 5 5 5 d d d d . . 
-            . . d d d d d d d d d d d d . . 
-            . . d d d d d d d d d d d d . . 
-            . . d d d d d d d d d d d d . . 
-            . . d d d d d d d d d d d d . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . d d d d d d d d d d d d . . 
-            . . d d d d d d d d d d d d . . 
-            . . d d d d d d d d d d d d . . 
-            . . d d d d d d d d d d d d . . 
-            . . d d d d 5 5 5 d d d d d . . 
-            . . d d d d 5 5 5 d d d d d . . 
-            . . d d d d 5 5 5 d d d d d . . 
-            . . d d d d d d d d d d d d . . 
-            . . d d d d d d d d d d d d . . 
-            . . d d d d d d d d d d d d . . 
-            . . d d d d d d d d d d d d . . 
-            . . d d d d d d d d d d d d . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . d d d d d d d d d . . . . 
-            . . . d d d d d d d d d . . . . 
-            . . . d d d d d d d d d . . . . 
-            . . . d d d d d d d d d . . . . 
-            . . . d d d 5 5 5 d d d . . . . 
-            . . . d d d 5 5 5 d d d . . . . 
-            . . . d d d d d d d d d . . . . 
-            . . . d d d d d d d d d . . . . 
-            . . . d d d d d d d d d . . . . 
-            . . . d d d d d d d d d . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `],
+        assets.animation`foodpacmananimation`,
         100,
         true
         )
@@ -186,6 +109,99 @@ function food () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`dangeroustilelevel1`, function (sprite, location) {
     game.over(false)
 })
+function ghost () {
+    animation.runImageAnimation(
+    Ghost,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 3 3 3 3 . . . . . . 
+        . . . . . 3 3 3 3 3 3 3 . . . . 
+        . . . . 3 3 3 3 3 3 3 3 . . . . 
+        . . . 3 3 3 1 3 3 1 3 3 3 . . . 
+        . . . 3 3 3 1 3 3 1 3 3 3 . . . 
+        . . 3 3 3 3 9 3 3 9 3 3 3 3 . . 
+        . . . 3 3 3 9 3 3 9 3 3 3 3 . . 
+        . . 3 3 3 3 3 3 3 3 3 3 3 . . . 
+        . . . 3 3 3 3 3 3 3 3 3 3 3 . . 
+        . . 3 3 3 3 3 3 3 3 3 3 3 . . . 
+        . . 3 3 3 3 3 3 3 3 3 3 3 . . . 
+        . . . 3 3 3 3 3 3 3 3 3 3 . . . 
+        . . . . 3 . 3 3 . 3 . 3 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 3 3 3 3 . . . . . . 
+        . . . . . 3 3 3 3 3 3 . . . . . 
+        . . . . 3 3 3 3 3 3 3 3 . . . . 
+        . . . . 3 3 1 3 3 1 3 3 . . . . 
+        . . . . 3 3 1 3 3 1 3 3 3 . . . 
+        . . . 3 3 3 9 3 3 9 3 3 . . . . 
+        . . . 3 3 3 9 3 3 9 3 3 3 . . . 
+        . . . . 3 3 3 3 3 3 3 3 3 . . . 
+        . . . 3 3 3 3 3 3 3 3 3 3 . . . 
+        . . . . 3 3 3 3 3 3 3 3 . . . . 
+        . . . 3 3 3 3 3 3 3 3 3 3 . . . 
+        . . . 3 . 3 . 3 . 3 . 3 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 3 3 3 3 . . . . . . 
+        . . . . . 3 3 3 3 3 3 . . . . . 
+        . . . . 3 3 3 3 3 3 3 3 . . . . 
+        . . . . 3 3 1 3 3 1 3 3 . . . . 
+        . . . . 3 3 1 3 3 1 3 3 . . . . 
+        . . . . 3 3 9 3 3 9 3 3 . . . . 
+        . . . . 3 3 9 3 3 9 3 3 . . . . 
+        . . . . 3 3 3 3 3 3 3 3 . . . . 
+        . . . . 3 3 3 3 3 3 3 3 . . . . 
+        . . . . 3 3 3 3 3 3 3 3 . . . . 
+        . . . . 3 3 3 3 3 3 3 3 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 3 3 3 3 . . . . . . 
+        . . . . . 3 3 3 3 3 3 . . . . . 
+        . . . . . 3 3 3 3 3 3 3 . . . . 
+        . . . . 3 3 1 3 3 1 3 . . . . . 
+        . . . . 3 3 1 3 3 1 3 3 . . . . 
+        . . . . . 3 9 3 3 9 3 . . . . . 
+        . . . . 3 3 9 3 3 9 3 3 . . . . 
+        . . . . 3 3 3 3 3 3 3 . . . . . 
+        . . . . . 3 3 3 3 3 3 3 . . . . 
+        . . . . 3 3 3 3 3 3 3 . . . . . 
+        . . . . 3 3 . 3 3 . 3 3 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 3 . . 3 . . . . . . 
+        . . . . . 3 3 3 3 3 3 . . . . . 
+        . . . . . 3 3 3 3 3 3 3 . . . . 
+        . . . . 3 3 1 3 3 1 3 . . . . . 
+        . . . . 3 3 1 3 3 1 3 3 . . . . 
+        . . . . . 3 9 3 3 9 3 . . . . . 
+        . . . . 3 3 9 3 3 9 3 3 . . . . 
+        . . . . 3 3 3 3 3 3 3 . . . . . 
+        . . . . . 3 3 3 3 3 3 . . . . . 
+        . . . . . 3 . 3 . 3 . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    150,
+    true
+    )
+}
 function maincharacterChicken () {
     Chicken = sprites.create(assets.image`chickenmaincharacter`, SpriteKind.Player)
     scene.cameraFollowSprite(Chicken)
@@ -232,9 +248,83 @@ function level1Pacman () {
     scene.setBackgroundImage(assets.image`Pacmanlevel1`)
     tiles.setCurrentTilemap(tilemap`level4`)
     maincharacterPacman()
-    PacMan.setPosition(44, 40)
     Pacman()
     food()
+    PacMan.setPosition(25, 40)
+    Ghost = sprites.create(assets.image`ghost1pacman`, SpriteKind.Enemy)
+    Ghost.setPosition(250, 115)
+    Ghost.follow(PacMan, 30)
+    ghost()
+    Ghost.setBounceOnWall(false)
+    Ghost2 = sprites.create(assets.image`ghost2pacman`, SpriteKind.Enemy)
+    Ghost2.setPosition(380, 170)
+    Ghost2.follow(PacMan, 20)
+    ghost2()
+    Ghost2.setBounceOnWall(false)
+    Ghost3 = sprites.create(assets.image`ghost3pacman`, SpriteKind.Player)
+    Ghost3.setPosition(120, 75)
+    Ghost3.follow(PacMan, 50)
+    ghost3()
+    Ghost3.setBounceOnWall(false)
+}
+function ghost3 () {
+    animation.runImageAnimation(
+    Ghost3,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 7 7 7 7 . . . . . . 
+        . . . . . 7 7 7 7 7 7 7 . . . . 
+        . . . . 7 7 7 7 7 7 7 7 . . . . 
+        . . . 7 7 7 1 7 7 1 7 7 7 . . . 
+        . . . 7 7 7 1 7 7 1 7 7 7 . . . 
+        . . 7 7 7 7 9 7 7 9 7 7 7 7 . . 
+        . . . 7 7 7 9 7 7 9 7 7 7 7 . . 
+        . . 7 7 7 7 7 7 7 7 7 7 7 . . . 
+        . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
+        . . 7 7 7 7 7 7 7 7 7 7 7 . . . 
+        . . 7 7 7 7 7 7 7 7 7 7 7 . . . 
+        . . . 7 7 7 7 7 7 7 7 7 7 . . . 
+        . . . . 7 . 7 7 . 7 . 7 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 7 7 7 7 . . . . . . 
+        . . . . . 7 7 7 7 7 7 7 . . . . 
+        . . . . 7 7 7 7 7 7 7 7 . . . . 
+        . . . 7 7 7 1 7 7 1 7 7 . . . . 
+        . . . . 7 7 1 7 7 1 7 7 7 . . . 
+        . . . 7 7 7 9 7 7 9 7 7 . . . . 
+        . . . . 7 7 9 7 7 9 7 7 7 . . . 
+        . . . 7 7 7 7 7 7 7 7 7 . . . . 
+        . . . . 7 7 7 7 7 7 7 7 7 . . . 
+        . . . 7 7 7 7 7 7 7 7 7 . . . . 
+        . . . . 7 7 7 7 7 7 7 7 7 . . . 
+        . . . . 7 . 7 . 7 . 7 . 7 . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 7 7 7 7 . . . . . . 
+        . . . . . 7 7 7 7 7 7 7 . . . . 
+        . . . . 7 7 7 7 7 7 7 7 . . . . 
+        . . . 7 7 7 1 7 7 1 7 7 7 . . . 
+        . . . . 7 7 1 7 7 1 7 7 . . . . 
+        . . . . 7 7 9 7 7 9 7 7 . . . . 
+        . . . 7 7 7 9 7 7 9 7 7 7 . . . 
+        . . . 7 7 7 7 7 7 7 7 7 . . . . 
+        . . . . 7 7 7 7 7 7 7 7 7 . . . 
+        . . . . 7 7 7 7 7 7 7 7 . . . . 
+        . . . . 7 7 7 7 7 7 7 7 . . . . 
+        . . . 7 7 . . . 7 7 7 7 7 . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    200,
+    true
+    )
 }
 function owl () {
     animation.runImageAnimation(
@@ -251,8 +341,11 @@ function level2Chicken () {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.over(false)
 })
+let Ghost3: Sprite = null
 let Owl: Sprite = null
+let Ghost: Sprite = null
 let coin: Sprite = null
+let Ghost2: Sprite = null
 let Chicken: Sprite = null
 let PacMan: Sprite = null
 info.setScore(0)

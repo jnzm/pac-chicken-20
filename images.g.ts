@@ -586,6 +586,82 @@ ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `;
+            case "image4":
+            case "ghost1pacman":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . 3 3 3 3 . . . . . . 
+. . . . . 3 3 3 3 3 3 3 . . . . 
+. . . . 3 3 3 3 3 3 3 3 . . . . 
+. . . 3 3 3 1 3 3 1 3 3 3 . . . 
+. . . 3 3 3 1 3 3 1 3 3 3 . . . 
+. . 3 3 3 3 9 3 3 9 3 3 3 3 . . 
+. . . 3 3 3 9 3 3 9 3 3 3 3 . . 
+. . 3 3 3 3 3 3 3 3 3 3 3 . . . 
+. . . 3 3 3 3 3 3 3 3 3 3 3 . . 
+. . 3 3 3 3 3 3 3 3 3 3 3 . . . 
+. . 3 3 3 3 3 3 3 3 3 3 3 . . . 
+. . . 3 3 3 3 3 3 3 3 3 3 . . . 
+. . . . 3 . 3 3 . 3 . 3 . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`;
+            case "image5":
+            case "ghost2pacman":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . 4 4 4 4 4 4 4 . . . . 
+. . . . 4 4 4 4 4 4 4 4 . . . . 
+. . . 4 4 4 1 4 4 1 4 4 4 . . . 
+. . . 4 4 4 1 4 4 1 4 4 4 . . . 
+. . 4 4 4 4 9 4 4 9 4 4 4 4 . . 
+. . . 4 4 4 9 4 4 9 4 4 4 4 . . 
+. . 4 4 4 4 4 4 4 4 4 4 4 . . . 
+. . . 4 4 4 4 4 4 4 4 4 4 4 . . 
+. . 4 4 4 4 4 4 4 4 4 4 4 . . . 
+. . 4 4 4 4 4 4 4 4 4 4 4 . . . 
+. . . 4 4 4 4 4 4 4 4 4 4 . . . 
+. . . . 4 . 4 4 . 4 . 4 . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`;
+            case "_k%$^FrkkE":
+            case "ghost3pacman":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . 7 7 7 7 . . . . . . 
+. . . . . 7 7 7 7 7 7 7 . . . . 
+. . . . 7 7 7 7 7 7 7 7 . . . . 
+. . . 7 7 7 1 7 7 1 7 7 7 . . . 
+. . . 7 7 7 1 7 7 1 7 7 7 . . . 
+. . 7 7 7 7 9 7 7 9 7 7 7 7 . . 
+. . . 7 7 7 9 7 7 9 7 7 7 7 . . 
+. . 7 7 7 7 7 7 7 7 7 7 7 . . . 
+. . . 7 7 7 7 7 7 7 7 7 7 7 . . 
+. . 7 7 7 7 7 7 7 7 7 7 7 . . . 
+. . 7 7 7 7 7 7 7 7 7 7 7 . . . 
+. . . 7 7 7 7 7 7 7 7 7 7 . . . 
+. . . . 7 . 7 7 . 7 . 7 . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`;
+            case ":xPTfp/lWkK/jLfE45fe":
+            case "foodpacman":return img`
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+`;
         }
         return null;
     })
@@ -661,6 +737,233 @@ f e e f e e e f f e e e f f e e
 . . . . . e e e e e e f . . . . 
 . . . . . f f e e e . . . . . . 
 . . . . . . . . f e . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`];
+            case "pacmanmaincharacteranimation":
+            case "^HfxHReQCLB}3A5Kd$RC":return [img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 5 5 5 5 5 . . . . . 
+. . . . . 5 5 5 5 5 5 5 . . . . 
+. . . . 5 5 5 5 5 5 5 5 5 . . . 
+. . . 5 5 5 5 5 5 5 5 5 5 5 . . 
+. . . 5 5 5 5 5 5 5 5 5 . . . . 
+. . 5 5 5 5 5 5 5 5 5 . . . . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+. . . 5 5 5 5 5 5 5 5 5 . . . . 
+. . . . . 5 5 5 5 5 . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 5 5 5 5 5 . . . . . 
+. . . . . 5 5 5 5 5 5 5 . . . . 
+. . . . 5 5 5 5 5 5 5 5 5 . . . 
+. . . 5 5 5 5 5 5 5 5 5 5 5 . . 
+. . . 5 5 5 5 5 5 5 5 5 5 5 . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+. . . 5 5 5 5 5 5 5 5 5 . . . . 
+. . . . . 5 5 5 5 5 . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 5 5 5 5 5 . . . . . 
+. . . . . 5 5 5 5 5 5 5 . . . . 
+. . . . 5 5 5 5 5 5 5 5 5 . . . 
+. . . 5 5 5 5 5 5 5 5 5 5 5 . . 
+. . . 5 5 5 5 5 5 5 5 5 . . . . 
+. . 5 5 5 5 5 5 5 5 5 . . . . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+. . . 5 5 5 5 5 5 5 5 5 . . . . 
+. . . . . 5 5 5 5 5 . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`];
+            case "foodpacmananimation":
+            case "xD%S~K#jw!OxRT`9W^B-":return [img`
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+`, img`
+. . . . . . . . . . . . . . . . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d d d 5 5 5 5 5 d d d d d . 
+. d d d d 5 5 5 5 5 d d d d d . 
+. d d d d 5 5 5 5 5 d d d d d . 
+. d d d d 5 5 5 5 5 d d d d d . 
+. d d d d 5 5 5 5 5 d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. . . . . . . . . . . . . . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d 5 5 5 5 5 d d d d . . 
+. . d d d 5 5 5 5 5 d d d d . . 
+. . d d d 5 5 5 5 5 d d d d . . 
+. . d d d 5 5 5 5 5 d d d d . . 
+. . d d d 5 5 5 5 5 d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d 5 5 5 d d d d d . . 
+. . d d d d 5 5 5 d d d d d . . 
+. . d d d d 5 5 5 d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . d d d d d d d d d . . . . 
+. . . d d d d d d d d d . . . . 
+. . . d d d d d d d d d . . . . 
+. . . d d d d d d d d d . . . . 
+. . . d d d 5 5 5 d d d . . . . 
+. . . d d d 5 5 5 d d d . . . . 
+. . . d d d d d d d d d . . . . 
+. . . d d d d d d d d d . . . . 
+. . . d d d d d d d d d . . . . 
+. . . d d d d d d d d d . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`];
+            case "foodpacmananimation2":
+            case "(Hc5h*#uhF~XU_/![|XO":return [img`
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d 5 5 5 5 5 d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+`, img`
+. . . . . . . . . . . . . . . . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d d d 5 5 5 5 5 d d d d d . 
+. d d d d 5 5 5 5 5 d d d d d . 
+. d d d d 5 5 5 5 5 d d d d d . 
+. d d d d 5 5 5 5 5 d d d d d . 
+. d d d d 5 5 5 5 5 d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. d d d d d d d d d d d d d d . 
+. . . . . . . . . . . . . . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d 5 5 5 5 5 d d d d . . 
+. . d d d 5 5 5 5 5 d d d d . . 
+. . d d d 5 5 5 5 5 d d d d . . 
+. . d d d 5 5 5 5 5 d d d d . . 
+. . d d d 5 5 5 5 5 d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d 5 5 5 d d d d d . . 
+. . d d d d 5 5 5 d d d d d . . 
+. . d d d d 5 5 5 d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . d d d d d d d d d d d d . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . d d d d d d d d d . . . . 
+. . . d d d d d d d d d . . . . 
+. . . d d d d d d d d d . . . . 
+. . . d d d d d d d d d . . . . 
+. . . d d d 5 5 5 d d d . . . . 
+. . . d d d 5 5 5 d d d . . . . 
+. . . d d d d d d d d d . . . . 
+. . . d d d d d d d d d . . . . 
+. . . d d d d d d d d d . . . . 
+. . . d d d d d d d d d . . . . 
+. . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `];

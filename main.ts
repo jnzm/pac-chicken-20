@@ -88,16 +88,16 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile12`, function (sprite, 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
     game.over(true)
 })
-function food2 () {
-    for (let value of tiles.getTilesByType(assets.tile`myTile11`)) {
-        food22 = sprites.create(assets.image`mineral`, SpriteKind.Food)
+function food4 () {
+    for (let value of tiles.getTilesByType(assets.tile`myTile7`)) {
+        worm = sprites.create(assets.image`worm`, SpriteKind.Player)
         animation.runImageAnimation(
-        food22,
-        assets.animation`potato`,
+        worm,
+        assets.animation`wormanimation`,
         100,
         true
         )
-        tiles.placeOnTile(food22, value)
+        tiles.placeOnTile(worm, value)
         tiles.setTileAt(value, assets.tile`transparency16`)
     }
 }
@@ -283,7 +283,7 @@ function level1Chicken () {
     maincharacterChicken()
     chicken()
     Chicken.setPosition(150, 150)
-    food2()
+    food3()
     info.startCountdown(30)
 }
 function level1Pacman () {
@@ -304,15 +304,15 @@ function ghost3 () {
     )
 }
 function food3 () {
-    for (let value of tiles.getTilesByType(assets.tile`myTile7`)) {
-        worm = sprites.create(assets.image`worm`, SpriteKind.Player)
+    for (let value of tiles.getTilesByType(assets.tile`myTile11`)) {
+        food2 = sprites.create(assets.image`mineral`, SpriteKind.Food)
         animation.runImageAnimation(
-        worm,
-        assets.animation`wormanimation`,
+        food2,
+        assets.animation`potato`,
         100,
         true
         )
-        tiles.placeOnTile(worm, value)
+        tiles.placeOnTile(food2, value)
         tiles.setTileAt(value, assets.tile`transparency16`)
     }
 }
@@ -340,8 +340,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     game.over(false)
 })
 let Owl: Sprite = null
+let food2: Sprite = null
 let worm: Sprite = null
-let food22: Sprite = null
 let coin: Sprite = null
 let Chicken: Sprite = null
 let Ghost3: Sprite = null
